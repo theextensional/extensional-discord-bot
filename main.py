@@ -1,7 +1,6 @@
 #!/usr/bin/python
 """TVP bot discord."""
 from datetime import datetime
-# from discord import client
 from discord.ext import commands, tasks
 from itertools import cycle
 import config

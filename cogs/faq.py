@@ -94,8 +94,6 @@ class Faq(commands.Cog):
         if id is None:
             rnd_list_text = '|'.join(rnd_list)
             return await ctx.send(f"```.faq <id:int> - введите номер вопроса\n.faq <{rnd_list_text}:str> - или показать рандомный```")
-        # await ctx.send('Test')
-        # await ctx.send(random.choice(list))
         try:
             id = int(id)
         except ValueError:
@@ -106,7 +104,6 @@ class Faq(commands.Cog):
 
         data = self.get_faq_by_id(int(id))
         if data:
-            # await ctx.send(f"Вы хотите ответ на {id} вопрос?")
             msg = f"**{data[1]}**\n{data[2]}"
             msg = (msg[:1998] + '..') if len(msg) > 2000 else msg
             await ctx.send(

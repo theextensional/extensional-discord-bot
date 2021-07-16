@@ -1,0 +1,4 @@
+**.directory
+__pycache__
+bot.db
+python.log

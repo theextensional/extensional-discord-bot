@@ -2,3 +2,5 @@
 __pycache__
 bot.db
 python.log
+config.py
+test/

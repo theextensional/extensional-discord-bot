@@ -4,3 +4,4 @@ bot.db
 python.log
 config.py
 test/
+start.sh

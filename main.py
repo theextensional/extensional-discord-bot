@@ -35,6 +35,7 @@ async def load(ctx, ext):
     bot.load_extension(f'cogs.{ext}')
     current_time = datetime.now().strftime("%H:%M:%S")
     print(f'✅ {current_time} {ext} loaded')
+    await ctx.send(f'✅ {ctx.author.mention} `{ext}` is loaded')
 
 
 @bot.command(aliases=['u'])
@@ -44,6 +45,7 @@ async def unload(ctx, ext):
     bot.unload_extension(f'cogs.{ext}')
     current_time = datetime.now().strftime("%H:%M:%S")
     print(f'✅ {current_time} {ext} unloaded')
+    await ctx.send(f'✅ {ctx.author.mention} `{ext}` is unloaded')
 
 
 @bot.command(aliases=['r'])

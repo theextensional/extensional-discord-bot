@@ -1,7 +1,8 @@
 """Configuration."""
-TOKEN = ''
-PREFIX = '.'
-DB_NAME = 'bot.db'
-QDAY_CHANNEL_ID = 000000000
-CH_BUMP = 000000000
-ROLE_BUMP = 000000000
+TOKEN = str
+PREFIX = str  # example '.'
+DB_NAME = str  # example 'bot.db'
+QDAY_CHANNEL_ID = int
+CH_BUMP = int
+ROLE_BUMP = int
+VOICE_TRIGGER = [int, int]

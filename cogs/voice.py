@@ -24,12 +24,17 @@ class Voice(commands.Cog):
                         channel_id = self.channels[member.id][category.id]
                         channel = self.bot.get_channel(channel_id)
                     else:
-                        channel = await category.create_voice_channel(f"{member.name}'s room", cattgory=category)
+                        channel = await category.create_voice_channel(f"{member.name}'s room")
                         await channel.set_permissions(member, connect=True, move_members=True, manage_channels=True)
-                        self.channels[member.id].update(
-                            {category.id: channel.id})
+                        if member.id in self.channels:
+                            self.channels[member.id].update(
+                                {category.id: channel.id})
+                        else:
+                            self.channels[member.id] = {
+                                category.id: channel.id}
+
                 else:
-                    channel = await category.create_voice_channel(f"{member.name}'s room", cattgory=category)
+                    channel = await category.create_voice_channel(f"{member.name}'s room")
                     await channel.set_permissions(member, connect=True, move_members=True, manage_channels=True)
                     self.channels[member.id] = {category.id: channel.id}
 

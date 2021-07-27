@@ -5,3 +5,4 @@ python.log
 config.py
 test/
 start.sh
+.ipynb_checkpoints/

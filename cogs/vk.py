@@ -35,7 +35,7 @@ class VK(commands.Cog):
 
     def vk_wall_get(self) -> list:
         """Get VK posts from the wall of group."""
-        params = {'access_token': config.config.VK_API_TOKEN,
+        params = {'access_token': config.VK_API_TOKEN,
                   'v': config.VK_API_VERSION,
                   'domain': config.VK_DOMAIN,
                   'count': 3}

@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 """TVP bot discord."""
 from datetime import datetime
 from discord.ext import commands, tasks

@@ -13,10 +13,6 @@ import os
 
 # если код работает в heroku, то взять token отуда, если на локалке - из файла authorization.py
 token = os.environ.get('TOKEN')
-
-#if not token:
-#    token = authorization.TOKEN
-print(token)
 sys.stdout.flush()
 bot = commands.Bot(command_prefix=config.PREFIX,
                    intents=discord.Intents.all())

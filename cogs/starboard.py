@@ -15,7 +15,7 @@ class StarBoard(commands.Cog):
         content = message.content if message.content else None
         file, files = None, None
 
-        if payload.emoji.name == '⭐':
+        if payload.emoji.name == 'copy':
 
             if len(message.attachments) > 1:
                 files = [await file.to_file() for file in message.attachments]

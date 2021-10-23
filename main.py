@@ -6,14 +6,16 @@ from datetime import datetime
 from discord.ext import commands, tasks
 from itertools import cycle
 import config
-#import authorization
+import authorization
 import discord
 import sqlite3
 import os
 
 # если код работает в heroku, то взять token отуда, если на локалке - из файла authorization.py
 token = os.environ.get('TOKEN')
-sys.stdout.flush()
+if not token:
+    token = authorization.TOKEN
+
 bot = commands.Bot(command_prefix=config.PREFIX,
                    intents=discord.Intents.all())
 status = cycle(['.help', 'https://www.thevenusproject.com',

@@ -13,6 +13,7 @@ import os
 
 # если код работает в heroku, то взять token отуда, если на локалке - из файла authorization.py
 token = os.environ.get('TOKEN')
+
 if not token:
     token = authorization.TOKEN
 

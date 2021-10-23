@@ -6,7 +6,6 @@ from datetime import datetime
 from discord.ext import commands, tasks
 from itertools import cycle
 import config
-import authorization
 import discord
 import sqlite3
 import os
@@ -14,6 +13,7 @@ import os
 # если код работает в heroku, то взять token отуда, если на локалке - из файла authorization.py
 token = os.environ.get('TOKEN')
 if not token:
+    import authorization
     token = authorization.TOKEN
 
 bot = commands.Bot(command_prefix=config.PREFIX,

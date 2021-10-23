@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 """TVP bot discord."""
+import sys
 from datetime import datetime
 from discord.ext import commands, tasks
 from itertools import cycle
@@ -78,5 +79,7 @@ async def on_command_error(ctx, error):
 @tasks.loop(seconds=30)
 async def change_status():
     await bot.change_presence(activity=discord.Game(next(status)))
-
+print("test")
+sys.stdout.flush()
 bot.run(config.TOKEN)
+sys.stdout.flush()

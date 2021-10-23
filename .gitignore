@@ -2,7 +2,7 @@
 __pycache__
 bot.db
 python.log
-config.py
+#config.py
 test/
 start.sh
 .ipynb_checkpoints/

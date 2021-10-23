@@ -1,13 +1,20 @@
 #!/usr/bin/env python
 """TVP bot discord."""
+# sys для вывода лога бота в консоль heroku
 import sys
 from datetime import datetime
 from discord.ext import commands, tasks
 from itertools import cycle
 import config
+import authorization
 import discord
 import sqlite3
 import os
+
+# если код работает в heroku, то взять token отуда, если на локалке - из файла authorization.py
+token = os.environ.get('TOKEN')
+if not token:
+    token = authorization.TOKEN
 
 bot = commands.Bot(command_prefix=config.PREFIX,
                    intents=discord.Intents.all())
@@ -79,7 +86,8 @@ async def on_command_error(ctx, error):
 @tasks.loop(seconds=30)
 async def change_status():
     await bot.change_presence(activity=discord.Game(next(status)))
+
 print("test")
 sys.stdout.flush()
-bot.run(config.TOKEN)
+bot.run(token)
 sys.stdout.flush()

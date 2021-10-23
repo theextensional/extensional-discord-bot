@@ -1,5 +1,4 @@
 """Configuration."""
-TOKEN = 'OTAxNDM1NTY2NDA1NTk5MjY0.YXP1Sg.07HV4fuXK8f1DUEiI6nNwknBnsg'
 PREFIX = '+'
 DB_NAME = 'bot.db'
 # QDAY_CHANNEL_ID = int

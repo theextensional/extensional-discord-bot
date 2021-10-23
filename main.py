@@ -16,7 +16,8 @@ token = os.environ.get('TOKEN')
 
 if not token:
     token = authorization.TOKEN
-
+print(token)
+sys.stdout.flush()
 bot = commands.Bot(command_prefix=config.PREFIX,
                    intents=discord.Intents.all())
 status = cycle(['.help', 'https://www.thevenusproject.com',

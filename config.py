@@ -8,7 +8,7 @@ DB_NAME = 'bot.db'
 # QDAY_CHANNEL_ID = int
 # CH_BUMP = int
 # ROLE_BUMP = int
-VOICE_TRIGGER = os.environ.get("VOICE_TRIGGER").split(",")
+VOICE_TRIGGER = [int(x) for x in os.environ.get("VOICE_TRIGGER").split(",")]
 print(VOICE_TRIGGER)
 sys.stdout.flush()
 # VK_API_TOKEN = str

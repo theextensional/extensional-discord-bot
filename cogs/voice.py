@@ -3,6 +3,7 @@ Cog ext: Voice
 """
 from discord.ext import commands
 import config
+import sys
 
 
 class Voice(commands.Cog):
@@ -15,6 +16,10 @@ class Voice(commands.Cog):
     async def on_voice_state_update(self, member, before, after) -> None:
         """Обработка события изменения состояния голосовых каналов."""
         try:
+            print(after.channel.id)
+            sys.stdout.flush()
+            print(config.VOICE_TREGGER)
+            sys.stdout.flush()
             if after.channel.id in config.VOICE_TRIGGER:
                 # TODO
                 # Log: user entered the channel

@@ -1,4 +1,6 @@
 """Configuration."""
+import os 
+
 PREFIX = '+'
 DB_NAME = 'bot.db'
 # QDAY_CHANNEL_ID = int

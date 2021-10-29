@@ -18,7 +18,7 @@ class Voice(commands.Cog):
         try:
             print(after.channel.id)
             sys.stdout.flush()
-            print(config.VOICE_TREGGER)
+            print(config.VOICE_TRIGGER)
             sys.stdout.flush()
             if after.channel.id in config.VOICE_TRIGGER:
                 # TODO

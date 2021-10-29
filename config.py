@@ -1,5 +1,7 @@
 """Configuration."""
 import os 
+import sys
+
 
 PREFIX = '+'
 DB_NAME = 'bot.db'
@@ -7,6 +9,7 @@ DB_NAME = 'bot.db'
 # CH_BUMP = int
 # ROLE_BUMP = int
 VOICE_TRIGGER = os.environ.get("VOICE_TRIGGER").split(",")
+sys.stdout.flush()
 # VK_API_TOKEN = str
 # VK_API_VERSION = float
 # VK_DOMAIN = str

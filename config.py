@@ -1,7 +1,7 @@
 """Configuration."""
 import os 
 
-PREFIX = '+'
+PREFIX = '.'
 DB_NAME = 'bot.db'
 # QDAY_CHANNEL_ID = int
 # CH_BUMP = int

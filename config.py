@@ -9,6 +9,7 @@ DB_NAME = 'bot.db'
 # CH_BUMP = int
 # ROLE_BUMP = int
 VOICE_TRIGGER = os.environ.get("VOICE_TRIGGER").split(",")
+print(VOICE_TRIGGER)
 sys.stdout.flush()
 # VK_API_TOKEN = str
 # VK_API_VERSION = float

@@ -7,3 +7,4 @@ test/
 start.sh
 .ipynb_checkpoints/
 data/
+.env

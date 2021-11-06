@@ -7,6 +7,7 @@ import config
 import discord
 import sqlite3
 import os
+import sys  # sys для вывода лога бота в консоль heroku
 
 bot = commands.Bot(command_prefix=config.PREFIX,
                    intents=discord.Intents.all())
@@ -80,3 +81,4 @@ async def change_status():
     await bot.change_presence(activity=discord.Game(next(status)))
 
 bot.run(config.TOKEN)
+sys.stdout.flush()

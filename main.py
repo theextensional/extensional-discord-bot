@@ -9,8 +9,6 @@ import sqlite3
 import os
 import sys  # sys для вывода лога бота в консоль heroku
 
-print("test")
-sys.stdout.flush()
 
 bot = commands.Bot(command_prefix=config.PREFIX,
                    intents=discord.Intents.all())

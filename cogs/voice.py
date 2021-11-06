@@ -4,7 +4,6 @@ Cog ext: Voice
 from discord.ext import commands
 import config
 
-
 class Voice(commands.Cog):
 
     def __init__(self, bot) -> None:

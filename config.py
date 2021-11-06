@@ -1,0 +1,4 @@
+TOKEN=
+PREFIX=.
+DB_NAME=bot.db
+b

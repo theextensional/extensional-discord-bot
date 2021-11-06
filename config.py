@@ -3,10 +3,10 @@ import sys
 print("config.py open")
 sys.stdout.flush()
 import os
-# from dotenv import load_dotenv
+from dotenv import load_dotenv
 
 
-# load_dotenv()
+load_dotenv()
 
 TOKEN: str = os.environ.get('TOKEN')
 PREFIX: str = os.environ.get('PREFIX')

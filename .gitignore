@@ -7,3 +7,4 @@ start.sh
 .ipynb_checkpoints/
 data/
 authorization.py
+.idea/

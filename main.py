@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 """TVP bot discord."""
+import sys  # sys для вывода лога бота в консоль heroku
+print("main.py open")
+sys.stdout.flush()
 from datetime import datetime
 from discord.ext import commands, tasks
 from itertools import cycle
@@ -7,7 +10,6 @@ import config
 import discord
 import sqlite3
 import os
-import sys  # sys для вывода лога бота в консоль heroku
 
 
 bot = commands.Bot(command_prefix=config.PREFIX,

@@ -1,4 +1,7 @@
 """Configuration."""
+import sys
+print("config.py open")
+sys.stdout.flush()
 import os
 # from dotenv import load_dotenv
 

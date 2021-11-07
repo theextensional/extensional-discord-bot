@@ -2,8 +2,9 @@
 __pycache__
 bot.db
 python.log
-config.py
 test/
 start.sh
 .ipynb_checkpoints/
 data/
+.env
+.idea/

@@ -9,8 +9,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 TOKEN: str = os.environ.get('TOKEN')
-PREFIX: str = os.environ.get('PREFIX')
-DB_NAME: str = os.environ.get('DB_NAME')
+PREFIX: str = "."
+DB_NAME: str = "bot.db"
 QDAY_CHANNEL_ID: int = 0
 CH_BUMP: int = 0
 ROLE_BUMP: int = 0

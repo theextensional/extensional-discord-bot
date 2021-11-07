@@ -81,5 +81,5 @@ async def change_status():
     await bot.change_presence(activity=discord.Game(next(status)))
 
 bot.run(config.TOKEN)
-# Вывода логов бота в консоль heroku
+# Вывод логов бота в консоль heroku
 sys.stdout.flush()

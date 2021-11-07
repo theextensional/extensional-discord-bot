@@ -3,7 +3,7 @@ import os
 from dotenv import load_dotenv
 
 
-load_dotenv()
+load_dotenv()  # для доступности переменных из файла ".env" в переменых окружения
 
 TOKEN: str = os.environ.get('TOKEN')
 PREFIX: str = "."

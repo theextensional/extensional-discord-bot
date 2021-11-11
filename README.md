@@ -1,6 +1,6 @@
 # TVP-discord-bot
 
-## добавление бота на discord-сервер
+## Добавление бота на discord-сервер
 
 1. Создать приложение:
     1. Перейти по ссылке: https://discord.com/developers/applications

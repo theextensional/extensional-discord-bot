@@ -14,7 +14,7 @@
 
 ## Ссылки
 
-- Документация модуля discordpy:
+- Документация модуля discord.py:
     https://discordpy.readthedocs.io/en/latest/index.html
 - Документация для разработчиков:
     https://discord.com/developers/docs/intro

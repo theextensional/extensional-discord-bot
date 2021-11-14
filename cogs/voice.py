@@ -12,7 +12,7 @@ class Voice(commands.Cog):
 
     def __init__(self, bot) -> None:
         self.bot = bot
-        #  подключаем firebase
+        # подключение firebase
         cred_obj = firebase_admin.credentials.Certificate(json.loads(config.FIREBASE_CERTIFICATE))
         default_app = firebase_admin.initialize_app(cred_obj, {
             'databaseURL': config.DB_URL
@@ -31,8 +31,6 @@ class Voice(commands.Cog):
         
         if after.channel:
             if after.channel.id in config.VOICE_TRIGGER:
-                # TODO
-                # Log: user entered the channel
                 category = after.channel.category
                 channel = await category.create_voice_channel(f"{member.name}'s room")
                 await channel.set_permissions(member, connect=True, move_members=True, manage_channels=True)

@@ -45,7 +45,10 @@ class Voice(commands.Cog):
 
     async def remove_empty_channels(self) -> None:
         ref = db.reference("/server")
-        for server_id, channel_dict in ref.get().items():
+        servers = ref.get()
+        if not servers:
+            return
+        for server_id, channel_dict in servers.items():
             for channel_id in channel_dict["channels"]:
                 channel = self.bot.get_channel(int(channel_id))
                 if channel:

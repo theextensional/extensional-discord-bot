@@ -2,3 +2,4 @@ aiocron>=1.6
 discord-components>=1.1.4
 discord.py>=1.7.3
 python-dotenv>=0.19.1
+firebase_admin>=5.1.0

@@ -6,6 +6,8 @@ from dotenv import load_dotenv
 load_dotenv()  # для доступности переменных из файла ".env" в переменых окружения
 
 TOKEN: str = os.environ.get('TOKEN')
+FIREBASE_CERTIFICATE = os.environ.get('FIREBASE_CERTIFICATE')
+DB_URL = os.environ.get('DB_URL')
 PREFIX: str = "."
 DB_NAME: str = "bot.db"
 QDAY_CHANNEL_ID: int = 0

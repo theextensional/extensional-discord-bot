@@ -1,16 +1,16 @@
 #!/usr/bin/env python
 """TVP bot discord."""
 from datetime import datetime
-from discord.ext import commands, tasks
+from nextcord.ext import commands, tasks
 from itertools import cycle
 import config
-import discord
+import nextcord
 import sqlite3
 import os
 import sys
 
 bot = commands.Bot(command_prefix=config.PREFIX,
-                   intents=discord.Intents.all())
+                   intents=nextcord.Intents.all())
 status = cycle(['.help', 'https://www.thevenusproject.com',
                'https://designing-the-future.org'])
 
@@ -78,7 +78,7 @@ async def on_command_error(ctx, error):
 
 @tasks.loop(seconds=30)
 async def change_status():
-    await bot.change_presence(activity=discord.Game(next(status)))
+    await bot.change_presence(activity=nextcord.Game(next(status)))
 
 bot.run(config.TOKEN)
 # Вывод логов бота в консоль heroku

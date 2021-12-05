@@ -1,6 +1,6 @@
 """StarBoard Cog."""
-from discord.ext import commands
-from discord import Forbidden
+from nextcord.ext import commands
+from nextcord import Forbidden
 
 
 class StarBoard(commands.Cog):

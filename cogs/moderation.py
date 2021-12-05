@@ -1,5 +1,5 @@
 """Cog module: Moderation."""
-from discord.ext import commands
+from nextcord.ext import commands
 
 
 class Moderation(commands.Cog):

@@ -1,6 +1,6 @@
 """Cog module: General."""
-from discord.ext import commands
-import discord
+from nextcord.ext import commands
+import nextcord
 import random
 
 
@@ -64,7 +64,7 @@ class General(commands.Cog):
 
     @commands.command(name='toprole', aliases=['top_role'])
     @commands.guild_only()
-    async def show_toprole(self, ctx, *, member: discord.Member = None):
+    async def show_toprole(self, ctx, *, member: nextcord.Member = None):
         """Command which shows the members Top Role."""
         if member is None:
             member = ctx.author

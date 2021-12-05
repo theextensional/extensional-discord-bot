@@ -1,7 +1,7 @@
 """
 Cog ext: Voice
 """
-from discord.ext import commands
+from nextcord.ext import commands
 import config
 import firebase_admin
 from firebase_admin import db
@@ -13,7 +13,8 @@ class Voice(commands.Cog):
     def __init__(self, bot) -> None:
         self.bot = bot
         # подключение firebase
-        cred_obj = firebase_admin.credentials.Certificate(json.loads(config.FIREBASE_CERTIFICATE))
+        cred_obj = firebase_admin.credentials.Certificate(
+            json.loads(config.FIREBASE_CERTIFICATE))
         default_app = firebase_admin.initialize_app(cred_obj, {
             'databaseURL': config.DB_URL
         })
@@ -22,13 +23,14 @@ class Voice(commands.Cog):
     @commands.Cog.listener()
     async def on_voice_state_update(self, member, before, after) -> None:
         """Обработка события изменения состояния голосовых каналов."""
-        self.ref = self.ref if self.ref else db.reference(f"server/{member.guild.id}/channels")
-        
+        self.ref = self.ref if self.ref else db.reference(
+            f"server/{member.guild.id}/channels")
+
         if before.channel:
             if self.ref.child(str(before.channel.id)).get() and len(before.channel.members) == 0:
                 await before.channel.delete()
                 self.ref.child(str(before.channel.id)).set({})
-        
+
         if after.channel:
             if after.channel.id in config.VOICE_TRIGGER:
                 category = after.channel.category
@@ -52,10 +54,11 @@ class Voice(commands.Cog):
                 if channel:
                     if not channel.members:
                         await channel.delete()
-                        ref.child(str(server_id)).child("channels").child(str(channel_id)).set({})
+                        ref.child(str(server_id)).child(
+                            "channels").child(str(channel_id)).set({})
                 else:
-                    ref.child(str(server_id)).child("channels").child(str(channel_id)).set({})
-
+                    ref.child(str(server_id)).child(
+                        "channels").child(str(channel_id)).set({})
 
 
 def setup(bot) -> None:

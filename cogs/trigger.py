@@ -34,7 +34,7 @@ class Trigger(commands.Cog):
             msg = message.content
             msg_lower = message.content.lower()
             answer = None
-            for row in all_values:
+            for idx, row in enumerate(all_values, start=2):
                 (
                     trigger,
                     ignoreCase,
@@ -47,6 +47,7 @@ class Trigger(commands.Cog):
                     count,
                 ) = row
                 string = msg
+                count = count if count else 0
 
                 if ignoreCase and includes:
                     if ignoreCase == "TRUE":
@@ -56,26 +57,40 @@ class Trigger(commands.Cog):
                     if (includes == "FALSE" and trigger == string) or (
                         includes == "TRUE" and trigger in string
                     ):
-                        answer = [content, embed, attachments]
+                        answer = [
+                            idx,
+                            trigger,
+                            content,
+                            embed,
+                            attachments,
+                            int(count),
+                        ]
                         break
 
                 # RegExp
                 else:
                     result = re.match(trigger, msg_lower, re.IGNORECASE)
                     if result:
-                        answer = [content, embed, attachments]
+                        answer = [
+                            idx,
+                            trigger,
+                            content,
+                            embed,
+                            attachments,
+                            int(count),
+                        ]
                         break
 
             if answer:
+                col = 9
                 file = embed = files = None
-                content, embed_str, urls = answer
+                row, trigger, content, embed_str, urls, count = answer
 
                 if embed_str:
-                    embed_dict = json.loads(embed_str)
-                    embed = Embed.from_dict(embed_dict)
+                    embed = Embed.from_dict(json.loads(embed_str))
 
                 if urls:
-                    urls = urls.split("\n")
+                    urls = urls.strip().split("\n")
                     length = len(urls)
                     if length == 1:
                         filename = urls[0].rsplit("/", 1)[-1]
@@ -96,7 +111,8 @@ class Trigger(commands.Cog):
                     content=content, files=files, file=file, embed=embed
                 )
 
-                # TODO counter
+                # Counter
+                sh.update_cell(row, col, count + 1)
 
         # Add trigger
         if message.reference is not None and message.content.startswith(

@@ -8,3 +8,4 @@ start.sh
 data/
 .env
 .idea/
+.vscode/

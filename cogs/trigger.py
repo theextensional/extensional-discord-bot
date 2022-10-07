@@ -69,7 +69,7 @@ class Trigger(commands.Cog):
 
                 # RegExp
                 else:
-                    result = re.match(trigger, msg_lower, re.IGNORECASE)
+                    result = re.search(trigger, msg_lower, re.IGNORECASE)
                     if result:
                         answer = [
                             idx,

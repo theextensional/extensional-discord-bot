@@ -15,7 +15,7 @@ from gspread import Worksheet
 from nextcord import Embed, File, Member, Message
 from nextcord.ext import commands
 
-TRIGGER_PREFIX = "+ "
+TRIGGER_PREFIX = "+"
 
 
 class Trigger(commands.Cog):

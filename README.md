@@ -1,4 +1,4 @@
-# TVP-discord-bot
+# Extensional-discord-bot
 
 ## Добавление бота на discord-сервер
 

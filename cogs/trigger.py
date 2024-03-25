@@ -2,18 +2,22 @@
 Cog: Trigger
 Срабатывает на слова-триггеры в сообщениях дискорда из списка в гугл-таблице.
 """
+
 import io
 import json
 import re
 from datetime import datetime
+from typing import Optional
 
 import aiohttp
-import config
 import gspread
 import pytz
 from gspread import Worksheet
 from nextcord import Embed, File, Member, Message
 from nextcord.ext import commands
+from pyimgur import Imgur
+
+import config
 
 TRIGGER_PREFIX = "+"
 
@@ -21,6 +25,12 @@ TRIGGER_PREFIX = "+"
 class Trigger(commands.Cog):
     def __init(self, bot) -> None:
         self.bot = bot
+
+    # function upload to imgur
+    async def upload_to_imgur(self, url) -> str:
+        im = Imgur(config.IMGUR_API_ID)
+        uploaded_image = im.upload_image(url=url)
+        return uploaded_image.link
 
     @commands.Cog.listener()
     async def on_message(self, message: Message) -> None:
@@ -115,15 +125,12 @@ class Trigger(commands.Cog):
                 sh.update_cell(row, col, count + 1)
 
         # Add trigger
-        if message.reference is not None and message.content.startswith(
-            TRIGGER_PREFIX
-        ):
+        if message.reference is not None and message.content.startswith(TRIGGER_PREFIX):
             # If User more than 90 days in this server
             if (
                 isinstance(message.author, Member)
                 and message.author.joined_at
-                and (datetime.now(tz=pytz.UTC) - message.author.joined_at).days
-                >= 90
+                and (datetime.now(tz=pytz.UTC) - message.author.joined_at).days >= 90
             ):
                 # If not exist
                 sh = await self.get_sheet()
@@ -143,21 +150,19 @@ class Trigger(commands.Cog):
                         ignoreCase = True
                         includes = False
                         content = msg.content
-                        attachments = (
-                            "\n".join(
-                                [
-                                    attachment.url
-                                    for attachment in msg.attachments
-                                ]
-                            )
-                            if msg.attachments
-                            else None
+                        attachments_urls: list[str] = [
+                            attachment.url for attachment in msg.attachments
+                        ]
+                        uploaded_urls: list[str] = []
+                        for attachment in attachments_urls:
+                            uploaded_urls.append(await self.upload_to_imgur(attachment))
+
+                        attachments: Optional[str] = (
+                            "\n".join(uploaded_urls) if msg.attachments else None
                         )
                         embed = (
                             msg.embeds.pop(0).to_dict()
-                            if msg.embeds
-                            and not msg.content
-                            and not attachments
+                            if msg.embeds and not msg.content and not attachments
                             else None
                         )
                         note = "Добавил " + message.author.name

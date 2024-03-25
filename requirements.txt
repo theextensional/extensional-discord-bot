@@ -3,3 +3,4 @@ python-dotenv>=0.19.1
 firebase_admin>=5.1.0
 nextcord>=2.0.0a3
 gspread
+pyimgur

@@ -55,7 +55,7 @@ class Trigger(commands.Cog):
                     note,
                     random,
                     count,
-                ) = row
+                ) = row[:9]
                 string = msg
                 count = count if count else 0
 
